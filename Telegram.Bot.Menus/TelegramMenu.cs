@@ -93,7 +93,15 @@ namespace Telegram.Bot.Menus
 
             if (currentMenuItemPressed is MenuItemWithAction menuItemWithAction)
             {
-                await menuItemWithAction.Action(e.Message.Chat);
+                if (menuItemWithAction.Action != null)
+                {
+                    menuItemWithAction.Action(e.Message.Chat);
+                }
+
+                if (menuItemWithAction.ActionAsync != null)
+                {
+                    await menuItemWithAction.ActionAsync(e.Message.Chat);
+                }
             }
             else if (currentMenuItemPressed is MenuItemWithSubItems menuItemWithSubItems)
             {

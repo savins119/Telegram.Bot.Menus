@@ -44,7 +44,7 @@ namespace TestApp
                 await bot.SendTextMessageAsync(chat.Id, "action4 pressed");
             }));
             mainMenu.AddSubItem(new MenuItemWithAction("/HideMainMenu",
-                async (chat) =>
+                (chat) =>
                 {
                     menu.HideMainMenu(chat.Id, "Main menu closed. To show main menu send '/start'"); 
                 }));
@@ -58,7 +58,7 @@ namespace TestApp
             bot.StopReceiving();
         }
 
-        private static void BotOnOnMessage(object? sender, MessageEventArgs e)
+        private static void BotOnOnMessage(object sender, MessageEventArgs e)
         {
             if (e.Message.Type == MessageType.Text)
             {
