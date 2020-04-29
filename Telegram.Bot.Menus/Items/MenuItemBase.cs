@@ -18,10 +18,5 @@ namespace Telegram.Bot.Menus.Items
 
             this.CommandText = commandText;
         }
-
-        protected internal virtual KeyboardButton ToKeyboardButton()
-        {
-            return new KeyboardButton(this.CommandText);
-        }
     }
 }

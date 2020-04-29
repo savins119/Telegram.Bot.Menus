@@ -19,8 +19,10 @@ namespace Telegram.Bot.Menus.Items
         public string MenuEnterMessage { get; private set; }
         
         public bool ShowAlways { get; private set; }
+
+        public ushort ColumnsCount { get; private set; }
         
-        public MenuItemWithSubItems(string commandText, string menuEnterMessage, bool showAlways = false) : base(commandText)
+        public MenuItemWithSubItems(string commandText, string menuEnterMessage, bool showAlways = false, ushort columnsCount = 2) : base(commandText)
         {
             if (string.IsNullOrWhiteSpace(menuEnterMessage))
             {
@@ -29,6 +31,13 @@ namespace Telegram.Bot.Menus.Items
             this.MenuEnterMessage = menuEnterMessage;
             this.subItems = new List<MenuItemBase>();
             this.ShowAlways = showAlways;
+
+            if (columnsCount < 1 || columnsCount > 8)
+            {
+                throw new ArgumentException("Value mast be between 1 and 8", nameof(columnsCount));
+            }
+            
+            this.ColumnsCount = columnsCount;
         }
 
         public MenuItemWithSubItems AddSubItems(IEnumerable<MenuItemBase> items)

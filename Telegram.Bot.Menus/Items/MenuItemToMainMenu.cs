@@ -8,10 +8,5 @@ namespace Telegram.Bot.Menus.Items
         public MenuItemToMainMenu() : base(Guid.NewGuid().ToString("D"))
         {
         }
-        
-        protected internal override KeyboardButton ToKeyboardButton()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

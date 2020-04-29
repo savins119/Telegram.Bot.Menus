@@ -15,7 +15,7 @@ namespace TestApp
         
         static void Main(string[] args)
         {
-            MenuItemWithSubItems mainMenu = new MenuItemWithSubItems("/showMainMenu", "Welcome to main menu!", true);
+            MenuItemWithSubItems mainMenu = new MenuItemWithSubItems("/showMainMenu", "Welcome to main menu!", true, 3);
             mainMenu.AddSubItem(new MenuItemWithSubItems("/menuWithSubItems1", "Welcome to 'menuWithSubItems1' menu!")
                 .AddSubItems(new MenuItemBase[]
                 {

@@ -110,9 +110,9 @@ namespace Telegram.Bot.Menus
             int number = 0;
             foreach (MenuItemBase item in menu.SubItems.Where(c => !(c is MenuItemToMainMenu) && !(c is MenuItemBack) ))
             {
-                currentLine.Add(item.ToKeyboardButton());
+                currentLine.Add(new KeyboardButton(item.CommandText));
                 number++;
-                if (number % 2 == 0)
+                if (number % menu.ColumnsCount == 0)
                 {
                     lines.Add(currentLine);
                     currentLine = new List<KeyboardButton>();
@@ -128,7 +128,6 @@ namespace Telegram.Bot.Menus
             bool containsGoToMain = menu.SubItems.Any(c => c is MenuItemToMainMenu); 
             bool containsGoBack = menu.SubItems.Any(c => c is MenuItemBack); 
                 
-            
             if (containsGoToMain && containsGoBack)
             {
                 lines.Add(new List<KeyboardButton> {new KeyboardButton(menu.Parent.CommandText), new KeyboardButton(this.MainMenu.CommandText)});
