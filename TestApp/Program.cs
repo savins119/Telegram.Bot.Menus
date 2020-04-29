@@ -39,9 +39,12 @@ namespace TestApp
             {
                 await bot.SendTextMessageAsync(chat.Id, "action3 pressed");
             }));
-            mainMenu.AddSubItem(new MenuItemWithAction("/action4", async (chat) =>
+            mainMenu.AddSubItem(new MenuItemWithAction("/actionSpam", async (chat) =>
             {
-                await bot.SendTextMessageAsync(chat.Id, "action4 pressed");
+                for (int i = 0; i < 10; i++)
+                {
+                    await bot.SendTextMessageAsync(chat.Id, $"Bot spam you #{i+1}");
+                }
             }));
             mainMenu.AddSubItem(new MenuItemWithAction("/HideMainMenu",
                 (chat) =>
