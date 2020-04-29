@@ -3,7 +3,7 @@ Menu automation for telegram bot. C#
 
 Example (can see in source code savins119/Telegram.Bot.Menus/TestApp/ ):
 
-
+```C#
 
 using System;
 using Telegram.Bot;
@@ -81,3 +81,4 @@ namespace TestApp
         }
     }
 }
+```
