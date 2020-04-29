@@ -59,13 +59,13 @@ namespace TestApp
             
             menu = new TelegramMenu(bot, mainMenu);
             
-            bot.OnMessage += BotOnOnMessage; 
+            bot.OnMessage += BotOnMessage; 
             bot.StartReceiving();
             Console.ReadLine();
             bot.StopReceiving();
         }
 
-        private static void BotOnOnMessage(object? sender, MessageEventArgs e)
+        private static void BotOnMessage(object? sender, MessageEventArgs e)
         {
             if (e.Message.Type == MessageType.Text)
             {
